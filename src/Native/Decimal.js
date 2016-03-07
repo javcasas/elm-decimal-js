@@ -1,3 +1,8 @@
+
+// -------------------------------------------------------
+// Begin decimal.js, copied from https://raw.githubusercontent.com/MikeMcl/decimal.js/master/decimal.js
+// See https://github.com/MikeMcl/decimal.js for usage, ownership & other stuff
+// -------------------------------------------------------
 /*! decimal.js v5.0.7 https://github.com/MikeMcl/decimal.js/LICENCE */
 ;(function (globalScope) {
   'use strict';
@@ -5020,6 +5025,10 @@
   }
 })(this);
 
+// -------------------------------------------------------
+// End decimal.js
+// -------------------------------------------------------
+
 Elm.Native.Decimal = {};
 Elm.Native.Decimal.make = function(localRuntime) {
     localRuntime.Native = localRuntime.Native || {};
@@ -5032,8 +5041,41 @@ Elm.Native.Decimal.make = function(localRuntime) {
     var Utils = Elm.Native.Utils.make(localRuntime);
 
     return localRuntime.Native.Decimal.values = {
-        Decimal: Decimal,
-        toFixed: function(d) {return d.toFixed()},
-        withDecimalsToFixed: F2(function(dp, d) {return d.toFixed(dp)})
+        abs: function(d) {return d.abs();},
+        acos: function(d) {return d.acos();},
+        acosh: function(d) {return d.acosh();},
+        asin: function(d) {return d.asin();},
+        asinh: function(d) {return d.asinh();},
+        atan: function(d) {return d.atan();},
+        atanh: function(d) {return d.atanh();},
+        cbrt: function(d) {return d.cbrt();},
+        ceil: function(d) {return d.ceil();},
+        cos: function(d) {return d.cos();},
+        cosh: function(d) {return d.cosh();},
+        exp: function(d) {return d.exp();},
+        floor: function(d) {return d.floor();},
+        ln: function(d) {return d.ln();},
+        log2: function(d) {return d.log2();},
+        log10: function(d) {return d.log10();},
+        round: function(d) {return d.round();},
+        sin: function(d) {return d.sin();},
+        sinh: function(d) {return d.sinh();},
+        sqrt: function(d) {return d.sqrt();},
+        tan: function(d) {return d.tan();},
+        tanh: function(d) {return d.tanh();},
+        trunc: function(d) {return d.trunc();},
+        add: F2(function(a, b) {return a.add(b);}),
+        atan2: F2(function(a, b) {return a.atan2(b);}),
+        div: F2(function(a, b) {return a.div(b);}),
+        log: F2(function(a, b) {return a.log(b);}),
+        mod: F2(function(a, b) {return a.mod(b);}),
+        mul: F2(function(a, b) {return a.mul(b);}),
+        pow: F2(function(a, b) {return a.pow(b);}),
+        sub: F2(function(a, b) {return a.sub(b);}),
+        fromInt: Decimal,
+        fromFloat: Decimal,
+        withDecimalsToFixed: F2(function(dp, d) {return d.toFixed(dp);}),
+        Decimal: Decimal
     };
 };
+    
