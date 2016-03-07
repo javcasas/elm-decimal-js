@@ -1,5 +1,5 @@
 {
-    "version": "0.0.1",
+    "version": "0.0.2",
     "summary": "Elm bindings for decimal.js",
     "repository": "http://github.com/javcasas/elm-decimal.git",
     "license": "BSD3",

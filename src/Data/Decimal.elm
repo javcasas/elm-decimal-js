@@ -16,6 +16,7 @@ module Data.Decimal (
     ln,
     log2,
     log10,
+    neg,
     round,
     sin,
     sinh,
@@ -23,6 +24,25 @@ module Data.Decimal (
     tan,
     tanh,
     trunc,
+    absoluteValue,
+    cosine,
+    cubeRoot,
+    hyperbolicCosine,
+    hyperbolicSine,
+    hyperbolicTangent,
+    inverseCosine,
+    inverseHyperbolicCosine,
+    inverseHyperbolicSine,
+    inverseHyperbolicTangent,
+    inverseSine,
+    inverseTangent,
+    naturalExponential,
+    naturalLogarithm,
+    negated,
+    sine,
+    squareRoot,
+    tangent,
+    truncated,
     add,
     atan2,
     div,
@@ -31,9 +51,18 @@ module Data.Decimal (
     mul,
     pow,
     sub,
-    fromInt,
-    fromFloat,
+    fromNumber,
     withDecimalsToFixed,
+    precision,
+    rounding,
+    minE,
+    maxE,
+    toExpNeg,
+    toExpPos,
+    modulo,
+    customDecimalFromNumber,
+    toString,
+    valueOf,
     Decimal
     ) where
 
@@ -56,6 +85,7 @@ module Data.Decimal (
 @docs ln
 @docs log2
 @docs log10
+@docs neg
 @docs round
 @docs sin
 @docs sinh
@@ -63,6 +93,25 @@ module Data.Decimal (
 @docs tan
 @docs tanh
 @docs trunc
+@docs absoluteValue
+@docs cosine
+@docs cubeRoot
+@docs hyperbolicCosine
+@docs hyperbolicSine
+@docs hyperbolicTangent
+@docs inverseCosine
+@docs inverseHyperbolicCosine
+@docs inverseHyperbolicSine
+@docs inverseHyperbolicTangent
+@docs inverseSine
+@docs inverseTangent
+@docs naturalExponential
+@docs naturalLogarithm
+@docs negated
+@docs sine
+@docs squareRoot
+@docs tangent
+@docs truncated
 @docs add
 @docs atan2
 @docs div
@@ -71,9 +120,18 @@ module Data.Decimal (
 @docs mul
 @docs pow
 @docs sub
-@docs fromInt
-@docs fromFloat
+@docs fromNumber
 @docs withDecimalsToFixed
+@docs precision
+@docs rounding
+@docs minE
+@docs maxE
+@docs toExpNeg
+@docs toExpPos
+@docs modulo
+@docs customDecimalFromNumber
+@docs toString
+@docs valueOf
 @docs Decimal
 -}
 
@@ -164,6 +222,11 @@ log2 = Native.Decimal.log2
 log10 : Decimal -> Decimal
 log10 = Native.Decimal.log10
 
+{-| neg
+-}
+neg : Decimal -> Decimal
+neg = Native.Decimal.neg
+
 {-| round
 -}
 round : Decimal -> Decimal
@@ -198,6 +261,146 @@ tanh = Native.Decimal.tanh
 -}
 trunc : Decimal -> Decimal
 trunc = Native.Decimal.trunc
+
+{-| absoluteValue
+-}
+absoluteValue : Decimal -> Decimal
+absoluteValue = Native.Decimal.absoluteValue
+
+{-| cosine
+-}
+cosine : Decimal -> Decimal
+cosine = Native.Decimal.cosine
+
+{-| cubeRoot
+-}
+cubeRoot : Decimal -> Decimal
+cubeRoot = Native.Decimal.cubeRoot
+
+{-| hyperbolicCosine
+-}
+hyperbolicCosine : Decimal -> Decimal
+hyperbolicCosine = Native.Decimal.hyperbolicCosine
+
+{-| hyperbolicSine
+-}
+hyperbolicSine : Decimal -> Decimal
+hyperbolicSine = Native.Decimal.hyperbolicSine
+
+{-| hyperbolicTangent
+-}
+hyperbolicTangent : Decimal -> Decimal
+hyperbolicTangent = Native.Decimal.hyperbolicTangent
+
+{-| inverseCosine
+-}
+inverseCosine : Decimal -> Decimal
+inverseCosine = Native.Decimal.inverseCosine
+
+{-| inverseHyperbolicCosine
+-}
+inverseHyperbolicCosine : Decimal -> Decimal
+inverseHyperbolicCosine = Native.Decimal.inverseHyperbolicCosine
+
+{-| inverseHyperbolicSine
+-}
+inverseHyperbolicSine : Decimal -> Decimal
+inverseHyperbolicSine = Native.Decimal.inverseHyperbolicSine
+
+{-| inverseHyperbolicTangent
+-}
+inverseHyperbolicTangent : Decimal -> Decimal
+inverseHyperbolicTangent = Native.Decimal.inverseHyperbolicTangent
+
+{-| inverseSine
+-}
+inverseSine : Decimal -> Decimal
+inverseSine = Native.Decimal.inverseSine
+
+{-| inverseTangent
+-}
+inverseTangent : Decimal -> Decimal
+inverseTangent = Native.Decimal.inverseTangent
+
+{-| naturalExponential
+-}
+naturalExponential : Decimal -> Decimal
+naturalExponential = Native.Decimal.naturalExponential
+
+{-| naturalLogarithm
+-}
+naturalLogarithm : Decimal -> Decimal
+naturalLogarithm = Native.Decimal.naturalLogarithm
+
+{-| negated
+-}
+negated : Decimal -> Decimal
+negated = Native.Decimal.negated
+
+{-| sine
+-}
+sine : Decimal -> Decimal
+sine = Native.Decimal.sine
+
+{-| squareRoot
+-}
+squareRoot : Decimal -> Decimal
+squareRoot = Native.Decimal.squareRoot
+
+{-| tangent
+-}
+tangent : Decimal -> Decimal
+tangent = Native.Decimal.tangent
+
+{-| truncated
+-}
+truncated : Decimal -> Decimal
+truncated = Native.Decimal.truncated
+
+{-| isFinite
+-}
+isFinite : Decimal -> Bool
+isFinite = Native.Decimal.isFinite
+
+{-| isInteger
+-}
+isInteger : Decimal -> Bool
+isInteger = Native.Decimal.isInteger
+
+{-| isInt
+-}
+isInt : Decimal -> Bool
+isInt = Native.Decimal.isInt
+
+{-| isNaN
+-}
+isNaN : Decimal -> Bool
+isNaN = Native.Decimal.isNaN
+
+{-| isNegative
+-}
+isNegative : Decimal -> Bool
+isNegative = Native.Decimal.isNegative
+
+{-| isNeg
+-}
+isNeg : Decimal -> Bool
+isNeg = Native.Decimal.isNeg
+
+{-| isPositive
+-}
+isPositive : Decimal -> Bool
+isPositive = Native.Decimal.isPositive
+
+{-| isPos
+-}
+isPos : Decimal -> Bool
+isPos = Native.Decimal.isPos
+
+{-| isZero
+-}
+isZero : Decimal -> Bool
+isZero = Native.Decimal.isZero
 
 {-| add
 -}
@@ -239,18 +442,122 @@ pow = Native.Decimal.pow
 sub : Decimal -> Decimal -> Decimal
 sub = Native.Decimal.sub
 
-{-| fromInt
+{-| greaterThan
 -}
-fromInt : Int -> Decimal
-fromInt = Native.Decimal.fromInt
+greaterThan : Decimal -> Decimal -> Bool
+greaterThan = Native.Decimal.greaterThan
 
-{-| fromFloat
+{-| gt
 -}
-fromFloat : Float -> Decimal
-fromFloat = Native.Decimal.fromFloat
+gt : Decimal -> Decimal -> Bool
+gt = Native.Decimal.gt
+
+{-| greaterThanOrEqualTo
+-}
+greaterThanOrEqualTo : Decimal -> Decimal -> Bool
+greaterThanOrEqualTo = Native.Decimal.greaterThanOrEqualTo
+
+{-| gte
+-}
+gte : Decimal -> Decimal -> Bool
+gte = Native.Decimal.gte
+
+{-| lessThan
+-}
+lessThan : Decimal -> Decimal -> Bool
+lessThan = Native.Decimal.lessThan
+
+{-| lt
+-}
+lt : Decimal -> Decimal -> Bool
+lt = Native.Decimal.lt
+
+{-| lessThanOrEqualTo
+-}
+lessThanOrEqualTo : Decimal -> Decimal -> Bool
+lessThanOrEqualTo = Native.Decimal.lessThanOrEqualTo
+
+{-| lte
+-}
+lte : Decimal -> Decimal -> Bool
+lte = Native.Decimal.lte
+
+{-| equals
+-}
+equals : Decimal -> Decimal -> Bool
+equals = Native.Decimal.equals
+
+{-| eq
+-}
+eq : Decimal -> Decimal -> Bool
+eq = Native.Decimal.eq
+
+{-| fromNumber
+-}
+fromNumber : number -> Decimal
+fromNumber = Native.Decimal.fromNumber
 
 {-| withDecimalsToFixed
 -}
 withDecimalsToFixed : Int -> Decimal -> String
 withDecimalsToFixed = Native.Decimal.withDecimalsToFixed
+
+{-| precision
+-}
+precision : Decimal -> Int
+precision = Native.Decimal.precision
+
+{-| rounding
+-}
+rounding : Decimal -> Int
+rounding = Native.Decimal.rounding
+
+{-| minE
+-}
+minE : Decimal -> Int
+minE = Native.Decimal.minE
+
+{-| maxE
+-}
+maxE : Decimal -> Int
+maxE = Native.Decimal.maxE
+
+{-| toExpNeg
+-}
+toExpNeg : Decimal -> Int
+toExpNeg = Native.Decimal.toExpNeg
+
+{-| toExpPos
+-}
+toExpPos : Decimal -> Int
+toExpPos = Native.Decimal.toExpPos
+
+{-| modulo
+-}
+modulo : Decimal -> Int
+modulo = Native.Decimal.modulo
+
+{-| customDecimalFromNumber
+-}
+customDecimalFromNumber : { precision: Int,
+    rounding: Int,
+    toExpNeg: Int,
+    toExpPos: Int,
+    maxE: number,
+    minE: number,
+    modulo: Int,
+    crypto: Bool
+    } -> number -> Decimal
+
+customDecimalFromNumber = Native.Decimal.customDecimalFromNumber
+
+{-| toString
+-}
+toString : Decimal -> String
+toString = Native.Decimal.toString
+
+{-| valueOf
+-}
+valueOf : Decimal -> String
+valueOf = Native.Decimal.valueOf
 
