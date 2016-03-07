@@ -5078,4 +5078,3 @@ Elm.Native.Decimal.make = function(localRuntime) {
         Decimal: Decimal
     };
 };
-    
